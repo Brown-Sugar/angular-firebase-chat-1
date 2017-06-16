@@ -1,0 +1,36 @@
+<div class="container">
+
+<h2>My Messages</h2>
+
+<div class="row">
+  <div class="col-sm-3">
+    <div class="chat-room">
+
+      <!-- list -->
+      <ff-message-list
+        class="message-list"
+        [messages]="messages | async">
+      </ff-message-list>
+
+      <!-- create a message form -->
+      <form (ngSubmit)="createMessage()">
+        <input type="text" name="message" [(ngModel)]="message.text">
+        <button type="submit">Chat!</button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- second chat room -->
+
+</div>
+
+<!--<ff-message-form (messageCreated)="onMessageCreated()">
+</ff-message-form>-->
+
+<!-- show the messages -->
+<div *ngFor="let message of messages | async">
+  {{ message.text }}
+</div>
+
+</div>
